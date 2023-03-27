@@ -4,22 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spotify</title>
-
+    <title>Search-Spotify</title>
+    <script src="./spotify-images.js"></script>
     <style>
       body {
-        margin: 0px;
-        padding: 0px;
-        background-color: #1d1d1d;
+        background-color: #121212;
+        overflow-x: hidden;
       }
-      .main-div {
+      .maindiv {
         display: flex;
       }
       .leftdiv {
         width: 241px;
         padding-top: 24px;
         background-color: #000;
-        /* overflow: hidden; */
+        position: fixed;
       }
       .left1 {
         width: 241px;
@@ -177,20 +176,22 @@
         /* text-decoration: white; */
         text-decoration: none;
       }
-
       .rightdiv {
         flex-grow: 1;
+        position: relative;
+        left: 250px;
       }
 
       .right1 {
         display: flex;
-        justify-content: space-between;
+        /* justify-content: space-between; */
         align-items: center;
         padding: 10px;
         height: 44px;
-        position: sticky;
+        position: fixed;
         top: 0;
         background-color: #000;
+        gap: 540px;
       }
       .right1-1 {
         display: flex;
@@ -289,162 +290,40 @@
         );
       }
       .right2 {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 24px 32px 24px 32px;
-      }
-      .right2-1 {
-        font-family: var(
-          --font-family,
-          CircularSpTitle,
-          CircularSpTitle-Tall,
-          CircularSp-Arab,
-          CircularSp-Hebr,
-          CircularSp-Cyrl,
-          CircularSp-Grek,
-          CircularSp-Deva,
-          var(--fallback-fonts, sans-serif)
-        );
-        font-weight: 700;
-        font-size: 1.3rem;
-        color: white;
-        border-bottom: 1px solid transparent;
-      }
-      .right2-1:hover {
-        border-bottom: 1px solid white;
-      }
-      .right2-2 {
-        color: #b3b3b3;
-        font-size: 0.875rem;
-        font-weight: 700;
-        font-family: var(
-          --font-family,
-          CircularSp,
-          CircularSp-Arab,
-          CircularSp-Hebr,
-          CircularSp-Cyrl,
-          CircularSp-Grek,
-          CircularSp-Deva,
-          var(--fallback-fonts, sans-serif)
-        );
-      }
-      .right3 {
-        margin-top: 16px;
-        padding: 0 32px 0 32px;
-      }
-      #spotify-Cards-json {
-        display: grid;
-        /* grid-template-columns: auto auto auto auto auto; */
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        align-items: center;
-        gap: 18px;
-        justify-content: center;
-      }
-      .span-image {
-        padding: 16px;
-        background-color: #000;
-
-        border-radius: 12px;
-      }
-      .span-image:hover {
-        transition: 0.4s;
-        background-color: #282828;
-      }
-      .image-css {
-        /* width: 180px; */
-
-        border-radius: 12px;
-        width: 100%;
-      }
-
-      .right4 {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 32px 0 32px;
-        margin: 24px 0 16px 0;
-      }
-      .right4-1 {
-        font-family: var(
-          --font-family,
-          CircularSpTitle,
-          CircularSpTitle-Tall,
-          CircularSp-Arab,
-          CircularSp-Hebr,
-          CircularSp-Cyrl,
-          CircularSp-Grek,
-          CircularSp-Deva,
-          var(--fallback-fonts, sans-serif)
-        );
-        font-weight: 700;
+        height: 45px;
+        width: 1124px;
+        padding-top: 50px;
+        padding-left: 18px;
         font-size: 1.5rem;
+        font-weight: 700;
+        font-family: var(
+          --font-family,
+          CircularSpTitle,
+          CircularSpTitle-Tall,
+          CircularSp-Arab,
+          CircularSp-Hebr,
+          CircularSp-Cyrl,
+          CircularSp-Grek,
+          CircularSp-Deva,
+          var(--fallback-fonts, sans-serif)
+        );
         color: white;
       }
-      .right4-2 {
-        color: #b3b3b3;
-        font-size: 0.875rem;
-        font-weight: 700;
-        font-family: var(
-          --font-family,
-          CircularSp,
-          CircularSp-Arab,
-          CircularSp-Hebr,
-          CircularSp-Cyrl,
-          CircularSp-Grek,
-          CircularSp-Deva,
-          var(--fallback-fonts, sans-serif)
-        );
+      .right22 {
+        position: relative;
+        top: 44px;
       }
-      .title-css {
-        font-size: 20px;
-        font-weight: 700;
-        color: white;
-        font-size: 1rem;
-        font-weight: 700;
-        font-family: var(
-          --font-family,
-          CircularSp,
-          CircularSp-Arab,
-          CircularSp-Hebr,
-          CircularSp-Cyrl,
-          CircularSp-Grek,
-          CircularSp-Deva,
-          var(--fallback-fonts, sans-serif)
-        );
-        padding-bottom: 4px;
-      }
-      .desc-css {
-        font-size: 0.875rem;
-        font-weight: 400;
-        font-family: var(
-          --font-family,
-          CircularSp,
-          CircularSp-Arab,
-          CircularSp-Hebr,
-          CircularSp-Cyrl,
-          CircularSp-Grek,
-          CircularSp-Deva,
-          var(--fallback-fonts, sans-serif)
-        );
-        color: var(--text-subdued, #6a6a6a);
-        color: #858585;
-        margin: 0px;
-      }
-      .right5 {
-        padding: 0 32px 0 32px;
-      }
-      #spotify-card-json {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        align-items: center;
+      .right3-1 {
+        padding: 0 20px 20px 20px;
+        display: flex;
+        height: 210px;
+        width: 210px;
         gap: 18px;
-        justify-content: center;
       }
     </style>
   </head>
   <body>
-    <div class="main-div">
+    <div class="maindiv">
       <div class="leftdiv">
         <div class="left1">
           <svg
@@ -477,7 +356,7 @@
                 ></path>
               </svg>
             </div>
-            <div>Home</div>
+            <div onclick="backToHome()">Home</div>
           </div>
           <div class="left2-1">
             <div>
@@ -495,7 +374,7 @@
                 ></path>
               </svg>
             </div>
-            <div onclick="search()">Search</div>
+            <div>Search</div>
           </div>
           <div class="left2-1">
             <div>
@@ -626,30 +505,130 @@
             <div class="right1-2-2"></div>
             <div class="right1-2-3">
               <div>Sign up</div>
-              <div class="login" onclick="loginf()">Log in</div>
+              <div class="login">Log in</div>
             </div>
           </div>
         </div>
-        <div class="right2">
-          <div class="right2-1">Focus</div>
-          <div class="right2-2">Show all</div>
-        </div>
-        <div class="right3">
-          <div class="right3-1">
-            <div id="spotify-Cards-json"></div>
-          </div>
-        </div>
-        <div class="right4">
-          <div class="right4-1">Spotify Playlists</div>
-          <div class="right4-2">Show all</div>
-        </div>
-        <div class="right5">
-          <div class="right5-1">
-            <div id="spotify-card-json"></div>
+        <div class="right22">
+          <div class="right2">Browse all</div>
+          <div class="right3">
+            <div class="right3-1">
+              <img
+                src="/search images/Screenshot 2023-03-27 at 3.01.30 PM.png"
+                alt=""
+              />
+
+              <img
+                src="/search images/Screenshot 2023-03-27 at 3.01.48 PM.png"
+                alt=""
+              />
+
+              <img
+                src="/search images/Screenshot 2023-03-27 at 3.02.06 PM.png"
+                alt=""
+              />
+
+              <img
+                src="/search images/Screenshot 2023-03-27 at 3.02.24 PM.png"
+                alt=""
+              />
+
+              <img
+                src="/search images/Screenshot 2023-03-27 at 3.03.07 PM.png"
+                alt=""
+              />
+            </div>
+            <div class="right3-1">
+              <img
+                src="/search images/Screenshot 2023-03-27 at 4.17.35 PM.png"
+                alt=""
+              />
+              <img
+                src="/search images/Screenshot 2023-03-27 at 4.17.46 PM.png"
+                alt=""
+              />
+              <img
+                src="/search images/Screenshot 2023-03-27 at 4.17.56 PM.png"
+                alt=""
+              />
+              <img
+                src="/search images/Screenshot 2023-03-27 at 4.18.28 PM.png"
+                alt=""
+              />
+              <img
+                src="/search images/Screenshot 2023-03-27 at 4.18.35 PM.png"
+                alt=""
+              />
+            </div>
+            <div class="right3-1">
+              <img
+                src="/search images/Screenshot 2023-03-27 at 4.23.16 PM.png"
+                alt=""
+              />
+              <img
+                src="/search images/Screenshot 2023-03-27 at 4.23.27 PM.png"
+                alt=""
+              />
+              <img
+                src="/search images/Screenshot 2023-03-27 at 4.23.37 PM.png"
+                alt=""
+              />
+              <img
+                src="/search images/Screenshot 2023-03-27 at 4.23.49 PM.png"
+                alt=""
+              />
+              <img
+                src="/search images/Screenshot 2023-03-27 at 4.24.16 PM.png"
+                alt=""
+              />
+            </div>
+            <div class="right3-1">
+              <img
+                src="/search images/Screenshot 2023-03-27 at 4.57.22 PM.png"
+                alt=""
+              />
+              <img
+                src="/search images/Screenshot 2023-03-27 at 4.57.33 PM.png"
+                alt=""
+              />
+              <img
+                src="/search images/Screenshot 2023-03-27 at 4.57.48 PM.png"
+                alt=""
+              />
+              <img
+                src="/search images/Screenshot 2023-03-27 at 4.57.54 PM.png"
+                alt=""
+              />
+              <img
+                src="/search images/Screenshot 2023-03-27 at 4.58.25 PM.png"
+                alt=""
+              />
+            </div>
+            <div class="right3-1">
+              <img
+                src="/search images/Screenshot 2023-03-27 at 5.01.28 PM.png"
+                alt=""
+              />
+              <img
+                src="/search images/Screenshot 2023-03-27 at 5.01.44 PM.png"
+                alt=""
+              />
+              <img
+                src="/search images/Screenshot 2023-03-27 at 5.01.51 PM.png"
+                alt=""
+              />
+              <img
+                src="/search images/Screenshot 2023-03-27 at 5.01.58 PM.png"
+                alt=""
+              />
+              <img
+                src="/search images/Screenshot 2023-03-27 at 5.02.14 PM.png"
+                alt=""
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
   </body>
 </html>
-<script src="./spotify-images.js"></script>

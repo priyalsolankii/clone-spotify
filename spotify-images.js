@@ -63,6 +63,8 @@ const imageContainer =  document.createElement("img");
 imageContainer.className = "image-css";
 imageContainer.src = spotifyCards[i].image;
 
+
+
 const titleContainer = document.createElement("p");
 titleContainer.className = "title-css";
 titleContainer.textContent = spotifyCards[i].title;
@@ -100,3 +102,14 @@ spotifyContainer.appendChild(spanContainer);
   spotifyContainer2.appendChild(spanContainer);
   }
   
+  function search(){
+    window.location.href="./search.html"
+  }
+
+  function backToHome(){
+    window.location.href="./index.html"
+  }
+
+  function loginf(){
+    window.location.href="./LOGIN.HTML"
+  }
